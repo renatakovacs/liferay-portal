@@ -19,6 +19,8 @@ import com.liferay.portal.kernel.util.ReleaseInfo;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
+import java.util.Locale;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -41,6 +43,11 @@ public class HelloWorldPortlet extends GenericPortlet {
 		PrintWriter writer = renderResponse.getWriter();
 
 		writer.print("Welcome to " + ReleaseInfo.getReleaseInfo() + ".");
+		
+		writer.print(
+			"Welcome on the board on " +
+				Calendar.getInstance().getDisplayName(
+					Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.US) + ".");
 
 		writer.close();
 	}
